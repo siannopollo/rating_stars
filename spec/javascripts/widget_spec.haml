@@ -53,5 +53,20 @@
       widget.submitted = true;
       widget._updateMessage();
       expect(widget.message).should_be('Thanks for voting! (58%)');
+    }},
+    
+    'should not allow the rating to be updated once it has been submitted': function() {with(self){
+      widget.rating = 90;
+      widget.submitted = true;
+      widget.onmousemove({clientX: holder.positionedOffset().left + 40});
+      
+      expect(widget.rating).should_not_be(36);
+      expect(widget.rating).should_be(90);
+    }},
+    
+    'should submit the rating on click': function() {with(self){
+      widget.onclick({clientX: holder.positionedOffset().left + 40});
+      expect(widget.submitted).should_be(true);
+      expect(widget.message).should_be('Thanks for voting! (36%)');
     }}
   });
