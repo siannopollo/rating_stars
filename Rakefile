@@ -5,11 +5,11 @@ task :spec do
   `cd #{js_directory} && screen -d -m /opt/local/bin/serve`
   sleep 1
   
-  command = []
+  specs = []
   Dir["#{js_directory}/**/*_spec.haml"].each do |spec|
-    command << "open http://localhost:4000#{spec.sub(js_directory, '')}"
+    specs << "http://localhost:4000#{spec.sub(js_directory, '')}"
   end
-  system command * ' && '
+  system "open -a Firefox #{specs * ' '}"
 end
 
 namespace :spec do

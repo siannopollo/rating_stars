@@ -1,14 +1,15 @@
 - javascripts << 'rating_stars'
 
-%span#holder
+%div#holder
 
 :javascript
   describe('Rating widget', {
     'before': function() {with(self){
-      widget = new RatingStars.Widget($('holder'));
+      holder = $('holder');
+      widget = new RatingStars.Widget(holder);
     }},
     
     'should do something': function() {with(self){
-      expect(1).should_be(1);
+      expect(holder.select('img').size).should_be(2);
     }}
   });
