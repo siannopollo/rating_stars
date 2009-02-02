@@ -1,12 +1,25 @@
 - javascripts << 'rating_stars'
 
-%div#holder
+%div{:style => "margin-top:100px"} &nbsp;
+%table
+  %tr
+    %td
+      %div &nbsp; &nbsp;
+    %td
+      %div#holder
 
 :javascript
   describe('Rating widget', {
     'before': function() {with(self){
       holder = $('holder');
-      widget = new RatingStars.Widget(holder);
+      widget = new RatingStars.Widget({
+        'holder': holder
+      });
+    }},
+    
+    'after': function() {with(self){
+      widget = null;
+      holder.update();
     }},
     
     "should calculate the length of the mask and it's left value based on cursor position": function() {with(self){
@@ -28,5 +41,17 @@
       
       widget._updateRating(92)
       expect(widget.rating).should_be(98);
+    }},
+    
+    'should display a message indicating if the rating has been submitted': function() {with(self){
+      expect(widget.message).should_be('Click to submit');
+      
+      widget.rating = 58;
+      widget._updateMessage();
+      expect(widget.message).should_be('58% Rating');
+      
+      widget.submitted = true;
+      widget._updateMessage();
+      expect(widget.message).should_be('Thanks for voting! (58%)');
     }}
   });
