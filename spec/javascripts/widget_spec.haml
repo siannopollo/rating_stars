@@ -9,7 +9,24 @@
       widget = new RatingStars.Widget(holder);
     }},
     
-    'should do something': function() {with(self){
-      expect(holder.select('img').size).should_be(2);
+    "should calculate the length of the mask and it's left value based on cursor position": function() {with(self){
+      var mask = widget.mask;
+      expect(mask.getWidth()).should_be(0);
+      expect(parseInt(mask.style.left)).should_be(0);
+      
+      widget._updateMask(40)
+      expect(mask.getWidth()).should_be(64);
+      expect(parseInt(mask.style.left)).should_be(40);
+    }},
+    
+    'should calculate the percentage rating': function() {with(self){
+      widget._updateRating(40)
+      expect(widget.rating).should_be(36);
+      
+      widget._updateRating(67)
+      expect(widget.rating).should_be(68);
+      
+      widget._updateRating(92)
+      expect(widget.rating).should_be(98);
     }}
   });
