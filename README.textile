@@ -1,4 +1,4 @@
-h2. Rating Stars
+h1. Rating Stars
 
 p. Rating stars is a javascript library to easily allow you to having a rating widget (or many rating widgets) on a page, and submit that rating back to a server via Ajax.
 
@@ -26,12 +26,14 @@ p. In the simplest case, all you need is a div to place the widget and a url to 
   </script>
 </pre>
 
-p. There are other options that can be passed in to customize the widget:
+p. Listed below are all the options that can be passed in to customize the widget:
 
+* *holder*: The div that contains the rating widget, either as an id (string) or as a prototype extended element ($(id)). Must be provided.
+* *url*: The url to submit the rating to via Ajax. Must be provided.
 * *initialMessage*: The message that first appears when the widget is instantiated. Defaults to 'Click to submit'.
 * *submittedMessage*: The message that appears when the widget is submitted. This assumes that when you submit that no text comes back from the Ajax response. Defaults to 'Thanks for voting!'.
 * *readOnly*: Specifies whether the widget can be submitted or not. Useful in tandem with the 'rating' option. Defaults to false.
-* *rating*: The initial rating shown on the widget. Defaults to 0. Possible values: 0 - 100.
+* *rating*: The initial rating shown on the widget. Useful in tandem with the 'readOnly' option. Defaults to 0. Possible values: 0 - 100.
 
 h3. Credits
 
