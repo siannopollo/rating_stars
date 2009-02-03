@@ -12,7 +12,9 @@
   describe('Rating widget', {
     'before': function() {with(self){
       holder = $('holder');
-      widget = new RatingStars.Widget({'holder': holder,'url': '/ajax/blank.haml'});
+      widget = new RatingStars.Widget({
+        'holder': holder,
+        'url': '/ajax/blank.haml'});
     }},
     
     'after': function() {with(self){

@@ -1,0 +1,40 @@
+h2. Rating Stars
+
+p. Rating stars is a javascript library to easily allow you to having a rating widget (or many rating widgets) on a page, and submit that rating back to a server via Ajax.
+
+h4. Prerequisites
+
+* prototype.js
+* lowpro.js (mainly for the '$' methods it provides, but it would be a great way to unobtrusively instantiate the widget)
+
+h4. Installation
+
+p. There is one javascript file (rating_stars.js) and two images that comprise the widget. Just put the .js file and the image files in a place publicly accessible in your application.
+
+h4. Usage
+
+p. In the simplest case, all you need is a div to place the widget and a url to submit the rating to.
+
+<pre>
+  <div id="widget"></div>
+  
+  <script type="text/javascript">
+    new RatingStars.Widget({
+      'holder': 'widget',
+      'url': '/url/for/submission'
+    });
+  </script>
+</pre>
+
+p. There are other options that can be passed in to customize the widget:
+
+* initialMessage: The message that first appears when the widget is instantiated. Defaults to 'Click to submit'.
+* submittedMessage: The message that appears when the widget is submitted. This assumes that when you submit that no text comes back from the Ajax response. Defaults to 'Thanks for voting!'.
+* readOnly: Specifies whether the widget can be submitted or not. Useful in tandem with the 'rating' option. Defaults to false.
+* rating: The initial rating shown on the widget. Defaults to 0. Possible values: 0 - 100.
+
+h4. Credits
+
+p. Written by Steve Iannopollo (http://iannopollo.com). It can be obtained on github (http://github.com/siannopollo/rating_stars).
+
+p. Rating Stars is released under the MIT-License and is Copyright (c)2009 Steve Iannopollo.
