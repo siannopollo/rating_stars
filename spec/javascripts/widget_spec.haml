@@ -12,9 +12,7 @@
   describe('Rating widget', {
     'before': function() {with(self){
       holder = $('holder');
-      widget = new RatingStars.Widget({
-        'holder': holder
-      });
+      widget = new RatingStars.Widget({'holder': holder,'url': '/ajax/blank.haml'});
     }},
     
     'after': function() {with(self){
@@ -64,9 +62,17 @@
       expect(widget.rating).should_be(90);
     }},
     
-    'should submit the rating on click': function() {with(self){
+    'should use the optional message provided': function() {with(self){
+      widget.submitted = true;
+      widget._updateMessage("Super duper!\n");
+      expect(widget.message).should_be('Super duper!')
+    }},
+    
+    'should submit the rating via ajax, and display the text given back by the response': function() {with(self){
+      widget.url = '/ajax/response.haml'
+      widget._finalize = function(response) {
+        expect(response.responseText).should_be("Great job voting!!!\n")
+      };
       widget.onclick({clientX: holder.positionedOffset().left + 40});
-      expect(widget.submitted).should_be(true);
-      expect(widget.message).should_be('Thanks for voting! (36%)');
     }}
   });
