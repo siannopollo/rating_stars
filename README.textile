@@ -39,4 +39,4 @@ h3. Credits
 
 p. Written by "Steve Iannopollo":http://iannopollo.com. It can be obtained on "github":http://github.com/siannopollo/rating_stars.
 
-p. Rating Stars is released under the MIT-License and is Copyright (c)2009 Steve Iannopollo.
+p. Rating Stars is released under the MIT-License and is Copyright (c) 2009 Steve Iannopollo.

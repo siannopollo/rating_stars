@@ -14,7 +14,8 @@
       holder = $('holder');
       widget = new RatingStars.Widget({
         'holder': holder,
-        'url': '/ajax/blank.haml'});
+        'url': '/ajax/blank.haml'
+      });
     }},
     
     'after': function() {with(self){
@@ -76,5 +77,39 @@
         expect(response.responseText).should_be("Great job voting!!!\n")
       };
       widget.onclick({clientX: holder.positionedOffset().left + 40});
+    }},
+    
+    'should set the mask width when a rating is passed in': function() {with(self){
+      widget = null; holder.update();
+      widget = new RatingStars.Widget({
+        'holder': holder,
+        'url': '/ajax/blank.haml',
+        'rating': 30
+      });
+      
+      mask = widget.mask;
+      expect(mask.getWidth()).should_be(69)
+      expect(parseInt(mask.style.left)).should_be(35)
+    }},
+    
+    'should not update the widget when clicked if the read only option is true': function() {with(self){
+      widget = null; holder.update();
+      
+      var oldOnClick = RatingStars.Widget.prototype.onclick;
+      var clicked = false
+      RatingStars.Widget.prototype.onclick = function(event) { clicked = true }
+      
+      widget = new RatingStars.Widget({
+        'holder': holder,
+        'url': '/ajax/blank.haml',
+        'rating': 30,
+        'readOnly': true
+      });
+      
+      expect(widget.submitted).should_be(true);
+      widget.widgetHolder.fireNative('click');
+      expect(clicked).should_be(false);
+      
+      RatingStars.Widget.prototype.onclick = oldOnClick;
     }}
   });
