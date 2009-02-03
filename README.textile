@@ -37,6 +37,6 @@ p. Listed below are all the options that can be passed in to customize the widge
 
 h3. Credits
 
-p. Written by Steve Iannopollo (http://iannopollo.com). It can be obtained on github (http://github.com/siannopollo/rating_stars).
+p. Written by "Steve Iannopollo":http://iannopollo.com. It can be obtained on "github":http://github.com/siannopollo/rating_stars.
 
 p. Rating Stars is released under the MIT-License and is Copyright (c)2009 Steve Iannopollo.
