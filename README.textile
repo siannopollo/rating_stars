@@ -28,10 +28,10 @@ p. In the simplest case, all you need is a div to place the widget and a url to 
 
 p. There are other options that can be passed in to customize the widget:
 
-* initialMessage: The message that first appears when the widget is instantiated. Defaults to 'Click to submit'.
-* submittedMessage: The message that appears when the widget is submitted. This assumes that when you submit that no text comes back from the Ajax response. Defaults to 'Thanks for voting!'.
-* readOnly: Specifies whether the widget can be submitted or not. Useful in tandem with the 'rating' option. Defaults to false.
-* rating: The initial rating shown on the widget. Defaults to 0. Possible values: 0 - 100.
+* *initialMessage*: The message that first appears when the widget is instantiated. Defaults to 'Click to submit'.
+* *submittedMessage*: The message that appears when the widget is submitted. This assumes that when you submit that no text comes back from the Ajax response. Defaults to 'Thanks for voting!'.
+* *readOnly*: Specifies whether the widget can be submitted or not. Useful in tandem with the 'rating' option. Defaults to false.
+* *rating*: The initial rating shown on the widget. Defaults to 0. Possible values: 0 - 100.
 
 h4. Credits
 
