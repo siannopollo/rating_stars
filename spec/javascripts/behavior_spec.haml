@@ -1,0 +1,33 @@
+- javascripts << 'rating_stars'
+
+%div{:style => "margin-top:100px"} &nbsp;
+%table
+  %tr
+    %td
+      %div &nbsp; &nbsp;
+    %td
+      %div#holder{:href => '/ajax/blank.haml', :parameters => 'authenticity_token,blah/something_else,flim_flam'}
+
+:javascript
+  describe('Rating star behavior', {
+    'before': function() {with(self){
+      holder = $('holder');
+      behavior = new RatingStarsBehavior(holder);
+      widget = behavior.widget;
+    }},
+    
+    'after': function() {with(self){
+      behavior = null;
+      widget = null;
+      holder.update();
+    }},
+    
+    "should make a widget with a url of the href": function() {with(self){
+      expect(widget.url).should_be('/ajax/blank.haml');
+    }},
+    
+    'should turn a formatted string into default parameters': function() {with(self){
+      expect(widget.defaultParameters['authenticity_token']).should_be('blah');
+      expect(widget.defaultParameters['something_else']).should_be('flim_flam');
+    }}
+  });

@@ -5,7 +5,7 @@ p. Rating stars is a javascript library to easily allow you to having a rating w
 h3. Prerequisites
 
 * prototype.js
-* lowpro.js (mainly for the '$' methods it provides, but it would be a great way to unobtrusively instantiate the widget)
+* lowpro.js
 
 h3. Installation
 
@@ -26,14 +26,42 @@ p. In the simplest case, all you need is a div to place the widget and a url to 
   </script>
 </pre>
 
+p. If you want to go the lowpro, unobtrusive route, a behavior is provided that allows you to add a class of 'rating' to a div in order for it to turn into a widget.
+
+<pre>
+  <div class="rating" href="/url/for/submission" initial_message="Leave some feedback"></div>
+  
+  is equivalent to
+  
+  <div id="widget"></div>
+  
+  <script type="text/javascript">
+    new RatingStars.Widget({
+      'holder': 'widget',
+      'url': '/url/for/submission',
+      'initialMessage': 'Leave some feedback'
+    });
+  </script>
+</pre>
+
 p. Listed below are all the options that can be passed in to customize the widget:
 
-* *holder*: The div that contains the rating widget, either as an id (string) or as a prototype extended element ($(id)). Must be provided.
-* *url*: The url to submit the rating to via Ajax. Must be provided.
+* *holder*: The div that contains the rating widget, either as an id (string) or as a prototype extended element ($(id)). _Must be provided_.
+* *url*: The url to submit the rating to via Ajax. _Must be provided_.
 * *initialMessage*: The message that first appears when the widget is instantiated. Defaults to 'Click to submit'.
 * *submittedMessage*: The message that appears when the widget is submitted. This assumes that when you submit that no text comes back from the Ajax response. Defaults to 'Thanks for voting!'.
 * *readOnly*: Specifies whether the widget can be submitted or not. Useful in tandem with the 'rating' option. Defaults to false.
 * *rating*: The initial rating shown on the widget. Useful in tandem with the 'readOnly' option. Defaults to 0. Possible values: 0 - 100.
+* *parameters*: Any additional parameters that you wish to be submitted on the Ajax submission (think authenticity_token for Rails). Defaults to {}.
+
+p. Below are the attributes that can be put onto a div with class 'rating' for the lowpro behavior:
+
+* *href*: Translates to the _url_ option passed to the widget.
+* *initial_message*: Translates into the _initialMessage_ option passed to the widget.
+* *submitted_message*: Translates into the _submittedMessage_ option passed to the widget.
+* *read_only*: Translates into the _readOnly_ option passed to the widget.
+* *rating*: The _rating_ option passed to the widget.
+* *parameters*: A string in the format of _key,value/key,value_ that will be passed to the widget as the parameters option in the form of a hash.
 
 h3. Credits
 
