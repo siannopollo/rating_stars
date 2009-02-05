@@ -9,7 +9,7 @@ h3. Prerequisites
 
 h3. Installation
 
-p. There is one javascript file (rating_stars.js) and two images that comprise the widget. Just put the .js file and the image files in a place publicly accessible in your application.
+p. There is one javascript file (rating_stars.js) and three images that comprise the widget. Just put the .js file and the image files in a place publicly accessible in your application.
 
 h3. Usage
 
